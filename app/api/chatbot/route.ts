@@ -27,12 +27,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
     }
 
-    // Create a concise, optimized prompt for faster responses
-    const systemPrompt = `You are an AI Educational Counselor. Provide concise, practical advice (max 150 words). Focus on actionable steps. Be encouraging and supportive.`;
+    // Create a comprehensive prompt for better responses
+    const systemPrompt = `You are an AI Educational Counselor. Provide helpful, comprehensive advice for students. Your responses should be:
+
+- Clear and well-structured
+- Practical and actionable
+- Encouraging and supportive
+- Complete without being cut off
+- Focused on the student's specific question
+
+Use bullet points or numbered lists when helpful. Keep responses informative but concise.`;
 
     const userPrompt = `Student Question: "${message}"
 
-Provide a helpful, concise response with practical advice.`;
+Please provide a comprehensive, helpful response with practical advice and actionable steps.`;
 
     const completion = await groq.chat.completions.create({
       messages: [
@@ -46,8 +54,8 @@ Provide a helpful, concise response with practical advice.`;
         }
       ],
       model: "llama-3.1-8b-instant",
-      temperature: 0.5,
-      max_tokens: 200,
+      temperature: 0.7,
+      max_tokens: 800,
       top_p: 0.9,
       stream: false,
     });
@@ -66,17 +74,46 @@ Provide a helpful, concise response with practical advice.`;
   } catch (error) {
     console.error('Chatbot API Error:', error);
     
-    // Fast fallback response
+    // Comprehensive fallback response
     const fallbackResponse = `I'm here to help with your educational journey! You can ask me about:
 
-📚 Study habits and learning techniques
-💼 Career paths in various fields  
-🧮 Math problem-solving strategies
-💻 Programming and coding guidance
-📝 Exam preparation tips
-🔬 Subject-specific help
+📚 Study Habits & Learning Techniques
+• Effective note-taking methods
+• Time management strategies
+• Memory improvement techniques
+• Active learning approaches
 
-What would you like to know more about?`;
+💼 Career Guidance
+• Career paths in various fields
+• Industry trends and opportunities
+• Skill development recommendations
+• Professional networking tips
+
+🧮 Math & Problem Solving
+• Step-by-step problem-solving approaches
+• Mathematical concept explanations
+• Practice strategies for different topics
+• Common mistake prevention
+
+💻 Programming & Technology
+• Learning programming languages
+• Project-based learning approaches
+• Debugging and problem-solving
+• Industry best practices
+
+📝 Exam Preparation
+• Study schedule planning
+• Test-taking strategies
+• Stress management techniques
+• Review and revision methods
+
+🔬 Subject-Specific Help
+• Physics, Chemistry, Biology concepts
+• Literature and writing skills
+• History and social studies
+• Language learning strategies
+
+What specific area would you like to explore?`;
 
     return NextResponse.json({
       response: fallbackResponse,

@@ -127,8 +127,8 @@ export default function AIEducationalCounselor() {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <Card className="w-full max-w-2xl h-[600px] flex flex-col">
-        <CardHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <Card className="w-full max-w-4xl max-h-[90vh] flex flex-col">
+        <CardHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white flex-shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
@@ -150,16 +150,16 @@ export default function AIEducationalCounselor() {
           </div>
         </CardHeader>
 
-        <CardContent className="flex-1 flex flex-col p-0">
+        <CardContent className="flex-1 flex flex-col p-0 min-h-0">
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[50vh]">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[80%] rounded-lg p-3 ${
+                  className={`max-w-[85%] rounded-lg p-3 ${
                     message.sender === 'user'
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 text-gray-900'
@@ -173,8 +173,8 @@ export default function AIEducationalCounselor() {
                       <User className="w-4 h-4 text-white mt-0.5 flex-shrink-0" />
                     )}
                     <div className="flex-1">
-                      <div className="whitespace-pre-wrap text-sm">{message.text}</div>
-                      <div className={`text-xs mt-1 ${
+                      <div className="whitespace-pre-wrap text-sm leading-relaxed">{message.text}</div>
+                      <div className={`text-xs mt-2 ${
                         message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
                       }`}>
                         {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -205,9 +205,9 @@ export default function AIEducationalCounselor() {
 
           {/* Quick Questions */}
           {messages.length === 1 && (
-            <div className="p-4 border-t">
+            <div className="p-4 border-t flex-shrink-0">
               <p className="text-sm text-gray-600 mb-3">Quick questions:</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {quickQuestions.map((question, index) => (
                   <Button
                     key={index}
@@ -217,7 +217,7 @@ export default function AIEducationalCounselor() {
                       setInputValue(question)
                       setTimeout(() => handleSendMessage(), 100)
                     }}
-                    className="text-xs"
+                    className="text-xs text-left justify-start h-auto py-2 px-3"
                   >
                     {question}
                   </Button>
@@ -227,7 +227,7 @@ export default function AIEducationalCounselor() {
           )}
 
           {/* Input Area */}
-          <div className="p-4 border-t">
+          <div className="p-4 border-t flex-shrink-0">
             <div className="flex gap-2">
               <Input
                 value={inputValue}
