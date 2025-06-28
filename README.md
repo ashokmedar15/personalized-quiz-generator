@@ -1,158 +1,143 @@
-# AI-Powered Personalized Education Platform
+# Personalized Education Platform - AI-Powered Learning
 
-A comprehensive Next.js application that provides personalized learning experiences through AI integration, adaptive learning paths, and interactive educational content.
+A modern, AI-powered educational platform built with Next.js that provides personalized learning experiences, adaptive content, and intelligent tutoring.
 
 ## 🚀 Features
 
-### Core Features
-- **Personalized Learning Paths**: AI-driven content adaptation based on learning style and progress
-- **Interactive Lessons**: Step-by-step notes, video links, and practice problems for each topic
-- **AI Educational Counselor**: Intelligent chatbot powered by Groq AI for personalized guidance
-- **Progress Tracking**: Real-time monitoring of learning progress and achievements
-- **Multi-Subject Support**: Comprehensive content across 15+ subjects and 50+ topics
+- **AI-Powered Chatbot**: Intelligent educational counselor using Groq AI
+- **Personalized Learning Paths**: Adaptive content based on learning style and difficulty
+- **Interactive Lessons**: Step-by-step educational content with videos and practice problems
+- **Multi-Subject Support**: Mathematics, Physics, Computer Science, Biology, Chemistry, and more
+- **Progress Tracking**: Monitor learning progress and achievements
+- **Responsive Design**: Modern UI built with Tailwind CSS and shadcn/ui
+- **Real-time AI Integration**: Live chat with educational AI assistant
 
-### Available Subjects
-- **Mathematics**: Introduction, Algebra, Geometry, Calculus, Statistics
-- **Computer Science**: Introduction, Programming, Data Structures, Algorithms, Web Development
-- **Physics**: Introduction, Mechanics, Electromagnetism, Thermodynamics
-- **Chemistry**: Introduction, Organic Chemistry, Physical Chemistry, Inorganic Chemistry
-- **Biology**: Introduction, Cell Biology, Genetics, Ecology
-- **English**: Introduction, Literature, Grammar
-- **History**: Introduction, World History, American History
-- **Law**: Introduction, Constitutional Law, Criminal Law
-- **Economics**: Introduction, Microeconomics, Macroeconomics
-- **Psychology**: Introduction, Cognitive Psychology, Social Psychology
-- **Philosophy**: Introduction, Ethics, Logic
-- **Art**: Introduction, Art History, Digital Art
+## 🛠️ Tech Stack
 
-### Technology Stack
 - **Frontend**: Next.js 14, React 18, TypeScript
-- **Styling**: Tailwind CSS, Radix UI Components
-- **AI Integration**: Groq AI (llama-3.1-8b-instant model)
-- **Authentication**: Supabase Auth
-- **Database**: Supabase (PostgreSQL)
-- **Deployment**: Vercel-ready
+- **Styling**: Tailwind CSS, shadcn/ui components
+- **AI Integration**: Groq AI API (Llama 3.1 8B Instant)
+- **Deployment**: Vercel
+- **Package Manager**: npm
 
-## 🛠️ Installation & Setup
+## 📋 Prerequisites
 
-### Prerequisites
 - Node.js 18+ 
 - npm or yarn
-- Groq AI API key
+- Groq AI API key (free tier available)
+
+## 🚀 Quick Start
 
 ### 1. Clone the Repository
+
 ```bash
-git clone https://github.com/yourusername/ai-personalized-education-platform.git
-cd ai-personalized-education-platform
+git clone <your-repo-url>
+cd personalized-quiz-generator
 ```
 
 ### 2. Install Dependencies
+
 ```bash
 npm install
 ```
 
-### 3. Environment Configuration
-Create a `.env.local` file in the root directory:
-```env
-# Groq AI Configuration
-GROQ_API_KEY=your_groq_api_key_here
+### 3. Environment Setup
 
-# Supabase Configuration (optional for full features)
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+Create a `.env.local` file in the root directory:
+
+```env
+GROQ_API_KEY=your_groq_api_key_here
 ```
 
+Get your free Groq API key from: https://console.groq.com/
+
 ### 4. Run the Development Server
+
 ```bash
 npm run dev
 ```
 
-The application will be available at `http://localhost:3000`
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📚 Usage
+## 📚 Available Subjects
 
-### For Students
-1. **Landing Page**: Visit the homepage to explore available subjects
-2. **Dashboard**: Access personalized learning recommendations
-3. **Lesson Pages**: Interactive lessons with step-by-step guidance
-4. **AI Counselor**: Chat with the AI for personalized help and guidance
-5. **Progress Tracking**: Monitor your learning journey
+- **Mathematics**: Algebra, Calculus, Geometry, Statistics
+- **Physics**: Mechanics, Thermodynamics, Electromagnetism, Quantum Physics
+- **Computer Science**: Programming, Data Structures, Algorithms, Web Development
+- **Biology**: Cell Biology, Genetics, Ecology, Human Anatomy
+- **Chemistry**: Organic Chemistry, Inorganic Chemistry, Biochemistry
+- **History**: World History, American History, Ancient Civilizations
+- **Literature**: Classic Literature, Modern Literature, Poetry
+- **Art**: Art History, Drawing, Painting, Digital Art
 
-### For Educators
-1. **Content Management**: Access comprehensive educational content
-2. **Student Progress**: Track individual and class progress
-3. **AI Integration**: Leverage AI for personalized teaching assistance
+## 🎯 Key Features Explained
 
-## 🏗️ Project Structure
+### AI Educational Counselor
+- 24/7 availability for student questions
+- Context-aware responses based on subject and topic
+- Personalized learning recommendations
+- Interactive problem-solving assistance
+
+### Adaptive Learning
+- Content difficulty adjustment based on performance
+- Learning style optimization (visual, auditory, kinesthetic)
+- Grade-level appropriate content
+- Progress-based recommendations
+
+### Interactive Lessons
+- Step-by-step learning modules
+- Embedded YouTube video resources
+- Practice problems with solutions
+- External resource links
+- Progress tracking
+
+## 🚀 Deployment
+
+### Deploy to Vercel
+
+1. **Push to GitHub** (see GitHub setup below)
+2. **Connect to Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Sign up/Login with GitHub
+   - Click "New Project"
+   - Import your GitHub repository
+   - Add environment variable: `GROQ_API_KEY`
+   - Deploy!
+
+### Environment Variables for Production
+
+In Vercel dashboard, add:
+- `GROQ_API_KEY`: Your Groq API key
+
+## 📁 Project Structure
 
 ```
-├── app/
-│   ├── api/                    # API routes
-│   │   ├── chatbot/           # AI counselor endpoint
-│   │   ├── educational-content/ # Educational content API
-│   │   └── personalize-content/ # Content personalization
-│   ├── dashboard/             # User dashboard
-│   ├── lesson/                # Interactive lesson pages
-│   └── page.tsx               # Landing page
-├── components/                # Reusable UI components
-│   ├── ui/                   # Base UI components
-│   ├── ai-educational-counselor.tsx
-│   ├── auth-provider.tsx
-│   ├── dashboard.tsx
-│   └── lesson-page.tsx
-├── lib/                      # Utility functions
-├── types/                    # TypeScript type definitions
-└── public/                   # Static assets
+personalized-quiz-generator/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   │   ├── chatbot/       # AI chatbot endpoint
+│   │   ├── educational-content/  # Content API
+│   │   └── personalize-content/  # Personalization API
+│   ├── dashboard/         # Dashboard page
+│   ├── lesson/           # Lesson viewer
+│   ├── login/            # Login page
+│   ├── globals.css       # Global styles
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── components/           # React components
+│   ├── ui/              # shadcn/ui components
+│   ├── ai-chatbot.tsx   # AI chatbot component
+│   ├── ai-educational-counselor.tsx  # Floating chat
+│   └── auth-provider.tsx # Authentication context
+├── lib/                 # Utility functions
+└── public/             # Static assets
 ```
 
 ## 🔧 API Endpoints
 
-### Educational Content API
-- `GET /api/educational-content?subject={subject}&topic={topic}`
-- Returns comprehensive lesson content with step-by-step notes and video links
-
-### AI Counselor API
-- `POST /api/chatbot`
-- Body: `{"message": "user message"}`
-- Returns AI-powered educational guidance
-
-### Content Personalization API
-- `POST /api/personalize-content`
-- Personalizes content based on user preferences and learning style
-
-## 🎯 Key Features in Detail
-
-### AI-Powered Personalization
-- Learning style detection (visual, auditory, kinesthetic)
-- Adaptive content difficulty adjustment
-- Personalized study recommendations
-- Real-time progress analysis
-
-### Interactive Learning Experience
-- Step-by-step lesson notes
-- Curated YouTube video links
-- Practice problems and exercises
-- Progress tracking and achievements
-
-### Comprehensive Content Library
-- 15+ subjects with 50+ topics
-- Rich multimedia content
-- Real-world applications
-- Assessment questions
-
-## 🚀 Deployment
-
-### Vercel Deployment (Recommended)
-1. Connect your GitHub repository to Vercel
-2. Add environment variables in Vercel dashboard
-3. Deploy automatically on push to main branch
-
-### Manual Deployment
-```bash
-npm run build
-npm start
-```
+- `GET /api/educational-content` - Get personalized educational content
+- `POST /api/chatbot` - AI chatbot interactions
+- `POST /api/personalize-content` - Content personalization
 
 ## 🤝 Contributing
 
@@ -162,21 +147,25 @@ npm start
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- Groq AI for providing the AI integration capabilities
-- Next.js team for the excellent framework
-- Radix UI for the accessible component library
-- All contributors and users of this platform
+- [Next.js](https://nextjs.org/) for the amazing React framework
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) for the beautiful component library
+- [Groq AI](https://groq.com/) for the fast AI inference API
+- [Vercel](https://vercel.com/) for seamless deployment
 
 ## 📞 Support
 
-For support, email support@ai-education-platform.com or create an issue in this repository.
+If you have any questions or need help, please:
+1. Check the [Issues](https://github.com/yourusername/personalized-quiz-generator/issues) page
+2. Create a new issue if your problem isn't already addressed
+3. Contact the maintainers
 
 ---
 
-**Built with ❤️ for the future of education**
+**Made with ❤️ for better education**
